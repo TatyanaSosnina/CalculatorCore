@@ -185,7 +185,7 @@ public final class Ulils {
         CalcSet set4Calculate = makeParts();
         Integer result = calculate(set4Calculate);
         System.out.println("Output:");
-        System.out.println(result);
+        System.out.println(isRoman ? Converter.convertArabicToRoman(result) : result);
     }
 
 }
