@@ -178,7 +178,7 @@ public final class Ulils {
     }
 
     /**
-     * Метод запуска вычисления
+     * Метод запуска вычисления и печати результата
      */
     public static final void go() {
         CalcSet set4Calculate = makeParts();
