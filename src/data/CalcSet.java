@@ -3,7 +3,7 @@ package data;
 /**
  * Класс, определяющий набор частей для вычисления
  */
-public class CalcSet {
+public final class CalcSet {
     /**
      * Левая часть выражения
      */
@@ -19,6 +19,7 @@ public class CalcSet {
 
     /**
      * Конструктор
+     *
      * @param operand1 Левая часть выражения
      * @param operand2 Правая часть выражения
      * @param operator Знак операции
@@ -30,26 +31,23 @@ public class CalcSet {
     }
 
     /**
-     *
      * @return левая часть выражения
      */
-    public Integer getOperand1() {
+    public final Integer getOperand1() {
         return operand1;
     }
 
     /**
-     *
      * @return правая часть выражения
      */
-    public Integer getOperand2() {
+    public final Integer getOperand2() {
         return operand2;
     }
 
     /**
-     *
      * @return знак операции
      */
-    public Character getOperator() {
+    public final Character getOperator() {
         return operator;
     }
 

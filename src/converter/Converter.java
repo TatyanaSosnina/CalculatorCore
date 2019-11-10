@@ -7,13 +7,19 @@ import java.util.TreeMap;
 /**
  * Класс для преобразования арабских чисел в римские и наоборот
  */
-public class Converter {
+public final class Converter {
+    /**
+     * Конструктор
+     */
+    private Converter() {
+    }
 
     /**
      * Карта соответствия арабское число - римское для минимально необходимого набора
      * максимально возможный по условию задачи результат - 10 * 10
      */
     private static final NavigableMap<Integer, String> units;
+
     static {
         NavigableMap<Integer, String> initMap = new TreeMap<>();
         initMap.put(100, "C");
@@ -30,13 +36,14 @@ public class Converter {
 
     /**
      * Метод для преобразования римских чисел в арабские
+     *
      * @param romanNumberStr входной параметр - римское число в виде строки
      * @return результат - целое арабское число
      */
-    public static int convertRomanToArabic(String romanNumberStr) {
+    public static final int convertRomanToArabic(String romanNumberStr) {
         int result = 0;
         int pos = 0;
-        for(Integer key : units.descendingKeySet()) {
+        for (Integer key : units.descendingKeySet()) {
             while ((romanNumberStr.substring(pos)).length() >= units.get(key).length()) {
                 if (units.get(key).equals(romanNumberStr.substring(pos, pos + units.get(key).length()))) {
                     result += key;
@@ -51,13 +58,16 @@ public class Converter {
 
     /**
      * Метод для преобразования арабских чисел в римские
+     *
      * @param arabicNumber входной параметр - арабское число
      * @return результат - римское число в виде строки
      */
-    public static String convertArabicToRoman(int arabicNumber) {
+    public static final String convertArabicToRoman(int arabicNumber) {
+        if (arabicNumber == 0) return "nulla";
+        if (arabicNumber < 0) return "В Римской системе счисления отсутствуют отрицательные числа";
         StringBuilder result = new StringBuilder();
 
-        for(Integer key : units.descendingKeySet()) {
+        for (Integer key : units.descendingKeySet()) {
             while (arabicNumber >= key) {
                 arabicNumber -= key;
                 result.append(units.get(key));

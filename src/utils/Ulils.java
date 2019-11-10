@@ -25,16 +25,17 @@ public final class Ulils {
 
     /**
      * Метод для получения оператора
+     *
      * @param str
      * @return
      */
-    public static char makeOperation(String str) {
+    public static final char makeOperation(String str) {
 
-        if(str.isEmpty()){
+        if (str.isEmpty()) {
             throw new CalcNotValidDataRuntimeException("Оператор отсутствует");
         }
 
-        if(str.length() > 1){
+        if (str.length() > 1) {
             throw new CalcNotValidDataRuntimeException("Введено более 1 символа для оператора");
         }
 
@@ -52,20 +53,20 @@ public final class Ulils {
 
     /**
      * Метод для получения операнда
+     *
      * @param str
      * @return
      */
-    public static Integer makeOperand(String str) {
+    public static final Integer makeOperand(String str) {
         if (str.isEmpty()) {
             throw new CalcNotValidDataRuntimeException("Операнд отсутствтует");
         }
 
         Integer operand = null;
         // преобразование в число
-        if(isRoman){
+        if (isRoman) {
             operand = Converter.convertRomanToArabic(str);
-        }
-        else {
+        } else {
             try {
                 operand = Integer.parseInt(str);
             } catch (Exception e) {
@@ -81,6 +82,7 @@ public final class Ulils {
 
     /**
      * Метод для вычисления результата
+     *
      * @param set4Calculate
      * @return
      */
@@ -112,10 +114,11 @@ public final class Ulils {
 
     /**
      * Метод для запроса входной строки
+     *
      * @return
      * @throws IOException
      */
-    public final static String askData() throws IOException {
+    public static final String askData() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
             System.out.println("Input:");
@@ -129,9 +132,10 @@ public final class Ulils {
 
     /**
      * Метод получения набора данных для рассчета
+     *
      * @return
      */
-    public final static CalcSet makeParts() {
+    public static final CalcSet makeParts() {
 
         String inputStr = null;
         try {
@@ -147,8 +151,7 @@ public final class Ulils {
             operand1Str = parts[0];
             operatorStr = parts[1];
             operand2Str = parts[2];
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw new CalcNotValidDataRuntimeException("Строка не соответствует формату примера задания. " + e);
         }
 
@@ -165,7 +168,7 @@ public final class Ulils {
         isRomanOperand2 = Converter.convertRomanToArabic(operand2Str);
         isRoman2 = isRomanOperand2 != 0 ? true : false;
 
-        if(!isRoman1.equals(isRoman2)){
+        if (!isRoman1.equals(isRoman2)) {
             throw new CalcNotValidDataRuntimeException("Части выражения введены не в едином стиле. Калькулятор умеет работать только с арабскими или римскими цифрами одновременно");
         }
 
@@ -186,5 +189,4 @@ public final class Ulils {
         System.out.println("Output:");
         System.out.println(isRoman ? Converter.convertArabicToRoman(result) : result);
     }
-
 }

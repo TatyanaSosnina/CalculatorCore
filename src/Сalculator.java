@@ -1,7 +1,7 @@
 import static utils.Ulils.*;
 
 public class Сalculator {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         go();
     }
 }

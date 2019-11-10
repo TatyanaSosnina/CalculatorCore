@@ -16,6 +16,7 @@ public enum OperatorType {
 
     /**
      * Конструктор
+     *
      * @param operator
      */
     private OperatorType(Character operator) {
@@ -24,6 +25,7 @@ public enum OperatorType {
 
     /**
      * Метод для получения знака операции
+     *
      * @return знак операции
      */
     public char getOperator() {
