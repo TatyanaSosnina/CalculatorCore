@@ -84,7 +84,6 @@ public final class Ulils {
      * @param set4Calculate
      * @return
      */
-//    public static final Integer calculate(CalcSet set4Calculate) { ////
     public static final Integer calculate(CalcSet set4Calculate) {
 
         char operation = set4Calculate.getOperator();
